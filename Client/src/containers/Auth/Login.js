@@ -6,7 +6,7 @@ import * as actions from "../../store/actions";
 
 import "./Login.scss";
 import { FormattedMessage } from "react-intl";
-
+import { handleLoginApi } from "../../services/userService";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +14,7 @@ class Login extends Component {
       username: "",
       password: "",
       isShowPassword: false,
+      errorMessage: "",
     };
   }
   handleOnchangeUsername = (event) => {
@@ -31,12 +32,30 @@ class Login extends Component {
   };
   handleShowHidePass = () => {
     this.setState({
-      isShowPassword: !this.state.isShowPassword
+      isShowPassword: !this.state.isShowPassword,
+    });
+  };
+  handleLogin = async () => {
+    this.setState({
+      errorMessage: "",
     })
-  }
-  handleLogin = () => {
     console.log("Username", this.state.username);
     console.log("Password", this.state.password);
+    try {
+      let data = await handleLoginApi(this.state.username, this.state.password)
+      if(data && data.errCode != 0) {
+        this.setState({errorMessage: data.message})
+      }
+      if(data && data.errCode == 0) {
+        this.setState({errorMessage: data.message})
+      }
+    } catch (error) {
+      if(error.response) {
+        if(error.response.data) {
+          this.setState({errorMessage: error.response.data.message})
+        }
+      }
+    }
   };
   render() {
     return (
@@ -62,17 +81,28 @@ class Login extends Component {
               </label>
               <div className="custom-input-password">
                 <input
-                  type={this.state.isShowPassword ? 'text' : 'password'}
+                  type={this.state.isShowPassword ? "text" : "password"}
                   className="form-control"
                   placeholder="Enter password"
                   value={this.state.password}
                   onChange={(event) => this.handleOnchangePassword(event)}
                 />
-                <span onClick={()=> this.handleShowHidePass()}>
-                  <i className={this.state.isShowPassword ? "far fa-eye" : "fas fa-eye-slash"}></i>
-                  </span>
+                <span onClick={() => this.handleShowHidePass()}>
+                  <i
+                    className={
+                      this.state.isShowPassword
+                        ? "far fa-eye"
+                        : "fas fa-eye-slash"
+                    }
+                  ></i>
+                </span>
               </div>
             </div>
+
+<div className="col-12" style={{ color: 'red' }}>
+  {this.state.errorMessage}
+</div>
+
             <div className="col-12">
               <button
                 className="btn-login"
