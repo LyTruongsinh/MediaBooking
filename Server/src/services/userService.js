@@ -8,27 +8,27 @@ let handleUserLogin = (useremail, password) => {
       let isExist = await checkUserEmail(useremail);
       if (isExist) {
         let user = await db.User.findOne({
-          attributes: ['email', 'roleId', 'password'], // only show three fields 'email', 'roleId', 'password'
+          attributes: ["email", "roleId", "password"], // only show three fields 'email', 'roleId', 'password'
           where: {
             email: useremail,
           },
-          raw: true
-        //   attributes: {
-        //     include: ['email', 'roleId'], // define columes that you want to show
-        //     exclude: ['password'] // define columes that you don't want to show
-        //   }
+          raw: true,
+          //   attributes: {
+          //     include: ['email', 'roleId'], // define columes that you want to show
+          //     exclude: ['password'] // define columes that you don't want to show
+          //   }
         });
         if (user) {
-            let checkPassword = await bcrypt.compareSync(password, user.password);
-            if(checkPassword) {
-                userData.errCode = 0;
-                userData.errMsg = "Login successful";
-                delete user.password; // delete passord in order to not show passord in API when test on PostMan
-                userData.user = user;
-            } else {
-                userData.errCode = 3;
-                userData.errMsg = "Password is incorrect";
-            }
+          let checkPassword = await bcrypt.compareSync(password, user.password);
+          if (checkPassword) {
+            userData.errCode = 0;
+            userData.errMsg = "Login successful";
+            delete user.password; // delete passord in order to not show passord in API when test on PostMan
+            userData.user = user;
+          } else {
+            userData.errCode = 3;
+            userData.errMsg = "Password is incorrect";
+          }
         } else {
           userData.errCode = 2;
           userData.errMsg = "User not found";
@@ -63,6 +63,34 @@ let checkUserEmail = (useremail) => {
     }
   });
 };
+let getAllUser = (userid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let users = '';
+      if (userid === "ALL") {
+        users = await db.User.findAll({
+          attributes: {
+            exclude: ['password']
+          }
+        });
+      }
+      if (userid && userid !== "ALL") {
+        users = await db.User.findOne({
+          where: {
+            id: userid
+          },
+          attributes: {
+            exclude: ['password']
+          }
+        });
+      }
+      resolve(users);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
 module.exports = {
   handleUserLogin: handleUserLogin,
+  getAllUser: getAllUser,
 };
