@@ -16,7 +16,7 @@ let handleLogin = async (req, res) => {
     })
 }
 let handleGetAllUsers = async (req, res) => {
-    let Id = req.body.id; //ALL ID
+    let Id = req.query.id; //ALL ID
     let allusers = await userService.getAllUser(Id);
     console.log(allusers);
     if(!Id) {
