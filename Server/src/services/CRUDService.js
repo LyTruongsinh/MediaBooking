@@ -75,12 +75,13 @@ let updateUserData = (data) => {
   console.log('Data from servicee: ', data);
   return new Promise(async (resolve, reject) => {
     try {
-      let User = await db.User.findOne({
+      let user = await db.User.findOne({
         where: {
-          id: data.id
+          id: data.id,
+          raw: false
         }
       })
-      if(!User) {
+      if(!user) {
         resolve("User not found");
         return;
       }
