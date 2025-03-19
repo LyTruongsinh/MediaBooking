@@ -32,31 +32,35 @@ class UserManage extends Component {
   handleAddNewUser = () => {
     this.setState({
       isOpenModel: true,
-    })
+    });
   };
 
   toggleUserModal = () => {
     this.setState({
       isOpenModel: !this.state.isOpenModel,
-    })
-  }
+    });
+  };
   render() {
     console.log("check render", this.state);
     let arrUsers = this.state.arrUsers;
     return (
       <div className="users-container">
         <ModalUser
-        isOpen = {this.state.isOpenModel}
-        toggleFromParent = {this.toggleUserModal}
+          isOpen={this.state.isOpenModel}
+          toggleFromParent={this.toggleUserModal}
         />
         <div className="title text-center">MANAGE USER</div>
         <div className="mx-5">
-          <button className="btn btn-primary px-3" onClick={() => this.handleAddNewUser()}>
+          <button
+            className="btn btn-primary px-3"
+            onClick={() => this.handleAddNewUser()}
+          >
             <i className="fas fa-plus"></i> Add new user
           </button>
         </div>
         <div className="users-table mt-3 mx-5">
           <table id="customers">
+          <tbody>
             <tr>
               <th>Email</th>
               <th>First name</th>
@@ -67,7 +71,7 @@ class UserManage extends Component {
             {arrUsers &&
               arrUsers.map((item, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{item.email}</td>
                     <td>{item.firstName}</td>
                     <td>{item.lastName}</td>
@@ -83,6 +87,7 @@ class UserManage extends Component {
                   </tr>
                 );
               })}
+              </tbody>
           </table>
         </div>
       </div>

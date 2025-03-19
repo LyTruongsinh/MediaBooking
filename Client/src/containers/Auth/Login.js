@@ -66,7 +66,7 @@ class Login extends Component {
             <div className="col-12 text-login">Login</div>
             <div className="col-12 form-group login-input">
               <label>
-                <i class="fas fa-user"></i>
+                <i className="fas fa-user"></i>
               </label>
               <input
                 type="text"
@@ -78,7 +78,7 @@ class Login extends Component {
             </div>
             <div className="col-12 form-group login-input">
               <label>
-                <i class="fas fa-key"></i>
+                <i className="fas fa-key"></i>
               </label>
               <div className="custom-input-password">
                 <input
