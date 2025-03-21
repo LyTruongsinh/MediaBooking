@@ -56,8 +56,24 @@ class ModalUser extends Component {
     );
   };
 
+  checkValidInput = () => {
+    let isValid  = true;
+    let arrInput = ['email','password', 'firstName', 'lastName', 'address'];
+    for(let i = 0; i < arrInput.length; i++) {
+      if(!this.state[arrInput[i]]) {
+        isValid = false;
+        alert('Missing parameter :' + arrInput[i]);
+        break;
+      }
+    }
+    return isValid;
+  }
   handleAddNewUser = () => {
-    console.log('data modle', this.state)
+    let isValid = this.checkValidInput();
+    if(isValid === true) {
+      // call API create Model
+      this.props.createNewUser(this.state);
+    }
   };
 
   render() {
