@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
-import { getAllUsers, createNewUserService } from "../../services/userService";
+import { getAllUsers, createNewUserService, deteleUserService } from "../../services/userService";
 import ModalUser from "./ModalUser";
+import { emitter } from "../../utils/emitter";
 class UserManage extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,12 @@ class UserManage extends Component {
    * 2. Did mount (set state) Call API get data and set state for component
    * 3. Render
    */
+
+  /**
+   * fire event child -> parent (props)
+   * parent -> child (ref)
+   * emitter (event)
+   */
   async componentDidMount() {
     await this.getAllUsers();
   }
@@ -30,8 +37,9 @@ class UserManage extends Component {
       this.setState({ arrUsers: response.allusers }, () => {
         console.log(this.state.arrUsers);
       });
+      emitter.emit('EVENT_CLEAR_MODAL_DATA') // Muốn fire một event
     }
-  }
+  };
   handleAddNewUser = () => {
     this.setState({
       isOpenModel: true,
@@ -48,20 +56,35 @@ class UserManage extends Component {
     try {
       let response = await createNewUserService(data);
       console.log("check response", response);
-      if(response && response.errCode !== 0) {
+      if (response && response.errCode !== 0) {
         alert(response.message);
-      }
-      else {
+      } else {
         await this.getAllUsers();
         this.setState({
           isOpenModel: false,
-        })
+        });
       }
     } catch (e) {
       console.log("Error when create new user", e);
       return;
     }
     console.log("check data", data);
+  };
+
+
+  handleDeletaUser = async (user) => {
+    console.log("click delete", user);
+    try {
+      let response = await deteleUserService(user.id);
+      if(response && response.errCode === 0) {
+        await this.getAllUsers();
+      }
+      else {
+        alert(response.message);
+      }
+    } catch(e) {
+      console.log("Error when delete user", e);
+    }
   }
   render() {
     console.log("check render", this.state);
@@ -71,7 +94,7 @@ class UserManage extends Component {
         <ModalUser
           isOpen={this.state.isOpenModel}
           toggleFromParent={this.toggleUserModal}
-          createNewUser = {this.createNewUser}
+          createNewUser={this.createNewUser}
         />
         <div className="title text-center">MANAGE USER</div>
         <div className="mx-5">
@@ -84,34 +107,39 @@ class UserManage extends Component {
         </div>
         <div className="users-table mt-3 mx-5">
           <table id="customers">
-          <tbody>
-            <tr>
-              <th>Email</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Address</th>
-              <th>Actions</th>
-            </tr>
-            {arrUsers &&
-              arrUsers.map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{item.email}</td>
-                    <td>{item.firstName}</td>
-                    <td>{item.lastName}</td>
-                    <td>{item.address}</td>
-                    <td>
-                      <button className="btn-edit">
-                        <i className="fas fa-edit"></i>
-                      </button>
-                      <button className="btn-delete">
-                        <i className="fas fa-trash-alt"></i>
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-              </tbody>
+            <tbody>
+              <tr>
+                <th>Email</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Address</th>
+                <th>Actions</th>
+              </tr>
+              {arrUsers &&
+                arrUsers.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{item.email}</td>
+                      <td>{item.firstName}</td>
+                      <td>{item.lastName}</td>
+                      <td>{item.address}</td>
+                      <td>
+                        <button className="btn-edit">
+                          <i className="fas fa-edit"></i>
+                        </button>
+                        <button
+                          className="btn-delete"
+                          onClick={() => {
+                            this.handleDeletaUser(item);
+                          }}
+                        >
+                          <i className="fas fa-trash-alt"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
           </table>
         </div>
       </div>
