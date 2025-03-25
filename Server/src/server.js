@@ -10,7 +10,7 @@ let app = express();
 //config app
 app.use(
     cors({
-        origin: "http://localhost:3000", // Chỉ cho phép frontend gọi API
+        origin: process.env.URL_REACT, // Chỉ cho phép frontend gọi API
         credentials: true // Cho phép gửi cookies và headers xác thực
     })
 );

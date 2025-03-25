@@ -7,9 +7,6 @@ class RegisterPackageGroupOrAcc extends Component {
         super(props);
 
     }
-
-
-
     render() {
         return (
             <div className="text-center">
