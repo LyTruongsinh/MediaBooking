@@ -20,7 +20,7 @@ import System from "../routes/System";
 
 import { CustomToastCloseButton } from "../components/CustomToast";
 import ConfirmModal from "../components/ConfirmModal";
-import HomePage from "./HomePage/homepage"
+import HomePage from "./HomePage/Homepage"
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;

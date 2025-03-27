@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
+import HeaderHome from "./HeaderHome.js";
 class HomePage extends Component {
   render() {
     return (
-        <div>
-          <h1>HomePage</h1>
-          {/* {this.props.isLoggedIn? (
-            <Redirect to="/system/user-manage" />
-          ) : (
-            <Redirect to="/login" />
-          )} */}
-        </div>
+      <div>
+        <HeaderHome />
+      </div>
     );
   }
 }
