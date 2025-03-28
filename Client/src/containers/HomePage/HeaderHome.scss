@@ -14,7 +14,7 @@
       align-items: center;
       cursor: pointer;
       i {
-        font-size : 25px;
+        font-size: 25px;
         color: grey;
       }
       .header-logo {
@@ -32,8 +32,8 @@
       align-items: center;
       .child-content {
         .sub-titles {
-            font-weight: 400;
-            font-size: 12;
+          font-weight: 400;
+          font-size: 12;
         }
       }
     }
@@ -43,6 +43,95 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+.home-header-banner {
+  background-image: url("../../assets/images/bookingcare-cover-4.jpg");
+  height: 460px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  .content-up {
+    border: 1px solid red;
+    height: 50%;
+    padding-top: 15px;
+    .title1 {
+      margin-top: 25px;
+      font-size: 35px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 1px #333;
+      margin-bottom: 5px;
+    }
+    .title2 {
+      text-align: center;
+      font-size: 35px;
+      text-shadow: 1px 1px 1px #333;
+      color: white;
+      margin-bottom: 15px;
+    }
+    .search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      padding: 10px;
+      width: 400px;
+      border-radius: 35px;
+      background-color: #f7d800;
+      i {
+        font-size: 20px;
+        color: black;
+        margin: 0 5px;
+      }
+      input {
+        height: 30px;
+        width: 360px;
+        border: none;
+        background: transparent;
+        outline: none;
+      }
+    }
+  }
+  .content-down {
+    border: 1px solid green;
+    height: 50%;
+    .options {
+      text-align: center;
+      display: flex;
+      grid-gap: 50px;
+      justify-content: center;
+      .options-child {
+        border: 1px solid red;
+        width: 125px;
+        .icon-child {
+          background-color: white;
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          border-radius: 50%;
+          margin: 0 auto;
+          text-align: center;
+          i {
+            color: #49bce2;
+            font-size: 20px;
+          }
+        }
+        .text-child {
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          &:hover {
+            color: #49bce2;
+          }
+        }
+      }
     }
   }
 }
