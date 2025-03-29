@@ -77,7 +77,7 @@ class HeaderHome extends Component {
               </div>
               <div className="options-child">
                 <div className="icon-child">
-                  <i className="fas fa-microscope"></i>
+                  <i className="fas fa-flask"></i>
                 </div>
                 <div className="text-child">Xét nghiệm y học</div>
               </div>
@@ -89,7 +89,7 @@ class HeaderHome extends Component {
               </div>
               <div className="options-child">
                 <div className="icon-child">
-                  <i className="fas fa-tooth"></i>
+                  <i className="fas fa-briefcase-medical"></i>
                 </div>
                 <div className="text-child">Khám nha khoa</div>
               </div>
