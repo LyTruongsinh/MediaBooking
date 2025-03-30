@@ -1,5 +1,9 @@
+:root {
+  --primary-color: #49bce2; 
+}
+
 .home_header-container {
-  height: 60px;
+  height: 65px;
   width: 100%;
   padding: 0 20px;
   .home-header-content {
@@ -42,6 +46,31 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      .support {
+        padding-right: 50px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        i {
+          font-size: 25px;
+          color: #bcb6b6;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      .language-vn {
+        cursor: pointer;
+        &.active {
+          color: var(--primary-color);
+        }
+      }
+      .language-en {
+        margin: 0 10px;
+        cursor: pointer;
+        &.active {
+          color: var(--primary-color);
+        }
+      }
     }
   }
 }
