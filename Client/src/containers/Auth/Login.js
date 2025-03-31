@@ -38,22 +38,22 @@ class Login extends Component {
   handleLogin = async () => {
     this.setState({
       errorMessage: "",
-    })
+    });
     console.log("Username", this.state.username);
     console.log("Password", this.state.password);
     try {
-      let data = await handleLoginApi(this.state.username, this.state.password)
-      if(data && data.errCode != 0) {
-        this.setState({errorMessage: data.message})
+      let data = await handleLoginApi(this.state.username, this.state.password);
+      if (data && data.errCode != 0) {
+        this.setState({ errorMessage: data.message });
       }
-      if(data && data.errCode == 0) {
-        this.props.userLoginSuccess(data.user)
-        this.setState({errorMessage: data.message})
+      if (data && data.errCode == 0) {
+        this.props.userLoginSuccess(data.user);
+        this.setState({ errorMessage: data.message });
       }
     } catch (error) {
-      if(error.response) {
-        if(error.response.data) {
-          this.setState({errorMessage: error.response.data.message})
+      if (error.response) {
+        if (error.response.data) {
+          this.setState({ errorMessage: error.response.data.message });
         }
       }
     }
@@ -71,7 +71,7 @@ class Login extends Component {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter username"
+                placeholder="Enter username or email"
                 value={this.state.username}
                 onChange={(event) => this.handleOnchangeUsername(event)}
               />
@@ -100,9 +100,9 @@ class Login extends Component {
               </div>
             </div>
 
-<div className="col-12" style={{ color: 'red' }}>
-  {this.state.errorMessage}
-</div>
+            <div className="col-12" style={{ color: "red" }}>
+              {this.state.errorMessage}
+            </div>
 
             <div className="col-12">
               <button
@@ -142,7 +142,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     navigate: (path) => dispatch(push(path)),
     // userLoginFail: () => dispatch(actions.adminLoginFail()),
-    userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo))
+    userLoginSuccess: (userInfo) =>
+      dispatch(actions.userLoginSuccess(userInfo)),
   };
 };
 

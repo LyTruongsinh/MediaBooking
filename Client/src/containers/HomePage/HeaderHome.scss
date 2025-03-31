@@ -60,15 +60,19 @@
       }
       .language-vn {
         cursor: pointer;
+        opacity: 0.3;
         &.active {
           color: var(--primary-color);
+          opacity: 1;
         }
       }
       .language-en {
         margin: 0 10px;
         cursor: pointer;
+        opacity: 0.3;
         &.active {
           color: var(--primary-color);
+          opacity: 1;
         }
       }
     }
@@ -115,8 +119,12 @@
       background-color: #f7d800;
       i {
         font-size: 20px;
-        color: black;
+        color: grey;
         margin: 0 5px;
+        cursor: pointer;
+        &:hover {
+          color: black;
+        }
       }
       input {
         height: 30px;
