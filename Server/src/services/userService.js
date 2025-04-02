@@ -167,7 +167,7 @@ let deleteUser = (userid) => {
 let updateUserData = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if(!data.id) {
+      if (!data.id) {
         resolve({
           errCode: 2,
           message: "No data provided",
