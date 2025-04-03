@@ -13,32 +13,57 @@ class Specialty extends Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 4,
       slidesToScroll: 1,
     };
     return (
       <div className="section-specialty">
-        <div className="specialty-content">
-          <Slider {...settings}>
-            <div className="img-customize">
-              <h3>1</h3>
-            </div>
-            <div className="img-customize">
-              <h3>2</h3>
-            </div>
-            <div className="img-customize">
-              <h3>3</h3>
-            </div>
-            <div className="img-customize">
-              <h3>4</h3>
-            </div>
-            <div className="img-customize">
-              <h3>5</h3>
-            </div>
-            <div className="img-customize">
-              <h3>6</h3>
-            </div>
-          </Slider>
+        <div className="specialty-container">
+          <div className="sepicalty-header">
+            <span className="title-section">Chuyên khoa phổ biến</span>
+            <button className="btn-section">Xem thêm</button>
+          </div>
+
+          <div className="specialty-body">
+            <Slider {...settings}>
+              <div className="specialty-customize">
+                <div className="specialty-body">
+                  <div className="bg-image" />
+                  <div className="name-spacialty">Khoa Xương Khớp</div>
+                </div>
+              </div>
+              <div className="specialty-customize">
+                <div className="specialty-body">
+                  <div className="bg-image" />
+                  <div className="name-spacialty">Khoa Xương Khớp</div>
+                </div>
+              </div>
+              <div className="specialty-customize">
+                <div className="specialty-body">
+                  <div className="bg-image" />
+                  <div className="name-spacialty">Khoa Xương Khớp</div>
+                </div>
+              </div>
+              <div className="specialty-customize">
+                <div className="specialty-body">
+                  <div className="bg-image" />
+                  <div className="name-spacialty">Khoa Xương Khớp</div>
+                </div>
+              </div>
+              <div className="specialty-customize">
+                <div className="specialty-body">
+                  <div className="bg-image" />
+                  <div className="name-spacialty">Khoa Xương Khớp</div>
+                </div>
+              </div>
+              <div className="specialty-customize">
+                <div className="specialty-body">
+                  <div className="bg-image" />
+                  <div className="name-spacialty">Khoa Xương Khớp</div>
+                </div>
+              </div>
+            </Slider>
+          </div>
         </div>
       </div>
     );
