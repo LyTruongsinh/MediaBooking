@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import "./MedicalFacility.scss";
 import Slider from "react-slick";
 import { FormattedMessage } from "react-intl";
 class MedicalFacility extends Component {
@@ -16,37 +15,37 @@ class MedicalFacility extends Component {
 
           <div className="section-body">
             <Slider {...this.props.settings}>
-              <div className="specialty-customize">
+              <div className="section-customize">
                 <div className="specialty-body">
                   <div className="bg-image section-medical-facility" />
                   <div className="name-spacialty">Hệ thống y tế Thu Cúc</div>
                 </div>
               </div>
-              <div className="specialty-customize">
+              <div className="section-customize">
                 <div className="specialty-body">
                   <div className="bg-image section-medical-facility" />
                   <div className="name-spacialty">Hệ thống y tế Thu Cúc</div>
                 </div>
               </div>
-              <div className="specialty-customize">
+              <div className="section-customize">
                 <div className="specialty-body">
                   <div className="bg-image section-medical-facility" />
                   <div className="name-spacialty">Hệ thống y tế Thu Cúc</div>
                 </div>
               </div>
-              <div className="specialty-customize">
+              <div className="section-customize">
                 <div className="specialty-body">
                   <div className="bg-image section-medical-facility" />
                   <div className="name-spacialty">Hệ thống y tế Thu Cúc</div>
                 </div>
               </div>
-              <div className="specialty-customize">
+              <div className="section-customize">
                 <div className="specialty-body">
                   <div className="bg-image section-medical-facility" />
                   <div className="name-spacialty">Hệ thống y tế Thu Cúc</div>
                 </div>
               </div>
-              <div className="specialty-customize">
+              <div className="section-customize">
                 <div className="specialty-body">
                   <div className="bg-image section-medical-facility" />
                   <div className="name-spacialty">Hệ thống y tế Thu Cúc</div>
