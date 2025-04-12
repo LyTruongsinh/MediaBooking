@@ -40,6 +40,44 @@
   &.section-outstanding-doctor {
     background: #f5f5f5;
   }
+  &.section-about {
+    height: 500px !important;
+    padding: 0 100px;
+    .section-about-header {
+      border-top: 2px solid grey;
+      padding: 20px 10px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .section-about-content {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      .content-left {
+        width: 60%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .content-right {
+        width: 40%;
+        height: auto;
+        .logo {
+          background: url("../../assets/images/bookingcare-2020.svg") center
+            center no-repeat;
+          background-size: 80%;
+          height: 100px;
+          width: 400px;
+          margin-left: 15px;
+        }
+        p {
+          padding: 10px;
+          font-size: 15px;
+          font-style: italic;
+          text-align: justify;
+        }
+      }
+    }
+  }
   .section-body {
     .section-customize {
       .bg-image {

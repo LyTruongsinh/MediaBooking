@@ -1,11 +1,17 @@
 :root {
-  --primary-color: #49bce2; 
+  --primary-color-blue: #49bce2;
+  --primary-color-yellow: #f7d800;
 }
 
 .home_header-container {
-  height: 65px;
+  height: 75px;
   width: 100%;
   padding: 0 20px;
+  border: 2px solid var(--primary-color-yellow);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1001;
   .home-header-content {
     width: 100%;
     height: 100%;
@@ -35,9 +41,30 @@
       justify-content: space-between;
       align-items: center;
       .child-content {
+        cursor: pointer;
+        border: 1.5px solid var(--primary-color-blue);
+        padding: 6px;
+        border-radius: 10px;
+        transition: background 0.2s;
+        .hhhhhh {
+          display: flex;
+          justify-content: center;
+        }
         .sub-titles {
           font-weight: 400;
-          font-size: 12;
+          font-size: 12px; // ✅ Có đơn vị
+          opacity: 0; // ✅ Ẩn mặc định
+          max-height: 0;
+          overflow: hidden;
+          transition: opacity 0.6s ease, max-height 0.6s ease;
+        }
+
+        &:hover {
+          background-color: rgba(73, 188, 226, 0.1);
+          .sub-titles {
+            opacity: 1;
+            max-height: 50px; // ✅ hiện ra khi hover
+          }
         }
       }
     }
@@ -62,7 +89,7 @@
         cursor: pointer;
         opacity: 0.3;
         &.active {
-          color: var(--primary-color);
+          color: var(--primary-color-blue);
           opacity: 1;
         }
       }
@@ -71,7 +98,7 @@
         cursor: pointer;
         opacity: 0.3;
         &.active {
-          color: var(--primary-color);
+          color: var(--primary-color-blue);
           opacity: 1;
         }
       }
@@ -90,7 +117,10 @@
   .content-up {
     height: 65%;
     padding-top: 15px;
-    background-image: linear-gradient(rgba(0,0,0,0.25), rgba(255,255,255,0.1));
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.25),
+      rgba(255, 255, 255, 0.1)
+    );
     .title1 {
       margin-top: 25px;
       font-size: 35px;
@@ -141,7 +171,11 @@
     display: flex;
     align-items: flex-end;
     padding-bottom: 10px;
-    background-image: linear-gradient( rgba(255,255,255,0.1), rgba(255,255,255,0.9), rgba(255,255,255,1.0));
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 1)
+    );
     .options {
       text-align: center;
       display: flex;

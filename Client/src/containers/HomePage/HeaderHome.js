@@ -25,7 +25,7 @@ class HeaderHome extends Component {
             </div>
             <div className="center-content">
               <div className="child-content">
-                <div className="">
+                <div className="hhhhhh">
                   <b>
                     <FormattedMessage id="home-header.speciality" />
                   </b>
@@ -35,7 +35,7 @@ class HeaderHome extends Component {
                 </div>
               </div>
               <div className="child-content">
-                <div className="">
+                <div className="hhhhhh">
                   <b>
                     <FormattedMessage id="home-header.health-facility" />
                   </b>
@@ -45,7 +45,7 @@ class HeaderHome extends Component {
                 </div>
               </div>
               <div className="child-content">
-                <div className="">
+                <div className="hhhhhh">
                   <b>
                     <FormattedMessage id="home-header.doctor" />
                   </b>
@@ -55,7 +55,7 @@ class HeaderHome extends Component {
                 </div>
               </div>
               <div className="child-content">
-                <div className="">
+                <div className="hhhhhh">
                   <b>
                     <FormattedMessage id="home-header.package-medical" />
                   </b>
