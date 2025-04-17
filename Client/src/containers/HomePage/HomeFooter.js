@@ -20,7 +20,7 @@ class HomeFooter extends Component {
                 <i className="fab fa-twitter"></i>
               </div>
               <div className="icon">
-                <i class="fab fa-facebook-square"></i>
+                <i className="fab fa-facebook-square"></i>
               </div>
               <div className="icon">
                 <i className="fab fa-instagram"></i>
@@ -84,12 +84,12 @@ class HomeFooter extends Component {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  class="custom-input"
+                  className="custom-input"
                 />
               </form>
-              <div class="single-btn">
+              <div className="single-btn">
                 <a href="#">
-                  <span>Contact Us <i class="far fa-paper-plane"></i></span>
+                  <span>Contact Us <i className="far fa-paper-plane"></i></span>
                 </a>
               </div>
             </div>

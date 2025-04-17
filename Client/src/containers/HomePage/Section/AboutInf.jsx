@@ -18,10 +18,10 @@ class AboutInf extends Component {
               height="400px"
               src="https://www.youtube.com/embed/wxzc_2c6GMg"
               title="How do carbohydrates impact your health? - Richard J. Wood"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             ></iframe>
           </div>
           <div className="content-right">

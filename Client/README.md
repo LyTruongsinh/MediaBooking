@@ -66,3 +66,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Explain Redux and React
+persisStore in utils/redux.js
+When App run, redux is injected on App automactic throught utils/index.js
+App react is connected with redux, redux is "transparent" with react is that
+mean App redux is Parallel Running in App react in order to Control var of App react 
+throungt "State" also know as save "State" in PersisStore is defined in App redux
+Each "Component" control "State" itself
+The diffrenence of Redux and LocalStorage
+
+* Essentially, both Redux and LocalStorage are used to store information. Redux was created to solve the problem of sharing state between components. Since Redux runs alongside React, for example, if we want to know which language is currently being used, a component can retrieve that data from Redux. In short, Redux helps components share state more easily. If we use props, they only work when components have a parent-child relationship and pass data down. But for components that are on the same level or even unrelated in the hierarchy, Redux can handle this issue.
+* As for the difference between Redux and LocalStorage: although Redux can also save data to LocalStorage, when we change the value in Redux, the React components will automatically update accordingly.
+* When using Local Storage, there’s no library that directly links Redux to Local Storage. Therefore, changes made to values in Local Storage won’t automatically trigger updates in React components.
+* Function help React "communication" Redux
+  - import { connect } from 'react-intl'
+  - const mapStateToPros and mapDispatchToProps
+  - Fuction connect cover two function mapStateToPros and mapDispatchToProps
